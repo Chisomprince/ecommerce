@@ -1,4 +1,4 @@
-export default function Rating({count}) {
+export default function Rating({count=''}) {
     return (
         <div>
         
@@ -16,7 +16,7 @@ export default function Rating({count}) {
                     <img className='inline w-4' src='/star.svg' />
                 </span>
 
-                <p className='text-xs text-gray-800'>({count})</p>
+                <p className='mb-2 text-xs text-gray-800' >{count}</p>
             </div>
         </div>
     )

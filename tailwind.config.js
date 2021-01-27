@@ -8,7 +8,8 @@ module.exports = {
   variants: {
     extend: {
       translate:['motion-reduce'],
-      transform:['hover','focus']
+      transform:['hover','focus'],
+      borderWidth:['last']
     },
   },
   plugins: [],
