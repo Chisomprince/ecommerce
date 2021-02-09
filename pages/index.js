@@ -1,18 +1,21 @@
 import Head from 'next/head'
-import {useEffect} from 'react'
-import Nav from '../components/nav'
-import Section from '../components/section'
-import Card from '../components/item-card'
+import {useContext, useEffect} from 'react'
+import Nav from '../components/navigations/nav'
+import Section from '../components/collections/section'
+import Card from '../components/productAssets/item-card'
 import Layout from '../components/layout'
 import Link from 'next/link'
-import Slide from '../components/slider' 
-import Deskbar from '../components/desktop-nav'
-import Baner from '../components/baner'
-import MutipleSlide from '../components/mutiple-slide'
+import Slide from '../components/sliders and banners/single-slider' 
+import Deskbar from '../components/navigations/desktop-nav'
+import Baner from '../components/sliders and banners/baner'
+import MutipleSlide from '../components/sliders and banners/mutiple-slide'
+import AppContext from '../context/app-context'
 
 
-export default function Home({category,collection,slides,product}) {
-   
+export default function Home({category,collection,slides,product,deals}) {
+
+ 
+  
   return (
     <Layout>
 
@@ -20,8 +23,9 @@ export default function Home({category,collection,slides,product}) {
      
        <Deskbar data={slides}/>
       
-      <MutipleSlide data={slides} pr={'pr-60'} text='Top selling items'/> 
-      <MutipleSlide data={slides} bg={'bg-blue-800'} text='Deal of the Day' deals='true'/> 
+      
+      <MutipleSlide data={deals} pr={'pr-60'} text='Top selling items'/> 
+      <MutipleSlide data={deals} bg={'bg-blue-800'} text='Deal of the Day' deals='true'/> 
 
       <Section data={collection} bg='bg-gray-200' text='Shop our style mode' />
     <Baner/>
@@ -39,7 +43,8 @@ export default function Home({category,collection,slides,product}) {
 export const getStaticProps = async()=>{
   const {category} = await import('../data/data')
   const {collection} = await import('../data/data')
-  const { slides } = await import('../data/data')
+  const { slides } = await import('../data/single-slide')
+  const { deals } = await import('../data/deals')
   const { product } = await import('../data/products')
   
 
@@ -48,7 +53,8 @@ export const getStaticProps = async()=>{
       category,
       collection,
       slides,
-      product
+      product,
+      deals
     }
   }
 }

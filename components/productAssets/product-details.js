@@ -1,4 +1,4 @@
-import Rating from './rating'
+import Rating from '../common/rating'
 export default function ProductDetails(){
     return(
         <div className='w-screen p-4 my-2 bg-white min-h-1/4 '>

@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import Link from 'next/link'
-import Slide from './slider'
+import Slide from '../sliders and banners/single-slider'
 
 export default function Filter({ data }) {
 

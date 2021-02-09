@@ -1,10 +1,17 @@
-import {useState} from 'react'
-import Button from './button'
+import {useState, useContext,useEffect} from 'react'
+import Button from '../common/button'
 import Discount from './discount'
-import Filter from './filter'
-import Rating from './rating'
+import Filter from '../common/filter'
+import Rating from '../common/rating'
+import AppContext from '../../context/app-context'
 export default function Card({ data }) {
- 
+  const {addToCart} = useContext(AppContext) 
+    const { setCurrentData,currentData } = useContext(AppContext)
+    useEffect(() => {
+        setCurrentData(data)
+    }, [])
+    
+    
     return (
         <div className='flex my-2'>
             <div className='hidden lg:block'>
@@ -17,9 +24,9 @@ export default function Card({ data }) {
 
 
                 {
-                    data.map((item) =>
+                    data.map((item,index) =>
                  
-                        <div className='flex flex-col p-2 transition duration-500 ease-in-out bg-white rounded-md group hover:bg-gray-200 hover:scale-110 hover:-translate-y-1 '>
+                        <div key={index} className='flex flex-col p-2 transition duration-500 ease-in-out bg-white rounded-md group hover:bg-gray-200 hover:scale-110 hover:-translate-y-1 '>
                             
                             <img className='flex-1 object-contain w-full p-4 max-h-48' src={item.image} />
                             <div className=''>
@@ -30,7 +37,7 @@ export default function Card({ data }) {
                                 <Rating />
                             </div>
                             <div className='lg:opacity-0 group-hover:opacity-100' >
-                                <Button bg='bg-yellow-600' text='ADD TO CART' onClick={()=>console.log('name',item.name)} />
+                                <Button bg='bg-yellow-600' id={item.id} text='ADD TO CART' handleClick={addToCart} />
                             </div>
                            
 

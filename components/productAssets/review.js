@@ -1,4 +1,4 @@
-import Rating from "./rating"
+import Rating from "../common/rating"
 
 export default function Reviews({date,review,name}){
     return(

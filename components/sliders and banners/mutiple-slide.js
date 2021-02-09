@@ -3,7 +3,7 @@ import Slider from 'react-slick'
 
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
-import { slides } from '../data/data'
+import { slides } from '../../data/data'
 export default function MutipleSlide({ data, bg = 'bg-white', text , deals}) {
     const settings = {
         arrows:false,
@@ -41,12 +41,12 @@ export default function MutipleSlide({ data, bg = 'bg-white', text , deals}) {
     };
     return (
 
-        <div className='w-full my-2 bg-white rounded'>
+        <div className='w-full my-4 bg-white rounded'>
 
             {deals=='true'?
-                <div className={`${bg} p-4 flex items-center justify-between`}>
-                    <p className='text-xl font-semibold text-white'>{text}</p>
-                    <p className='text-xl font-semibold text-white'>SEE ALL > </p>
+                <div className={`${bg} p-4 flex items-center justify-between rounded rounded-b-none`}>
+                    <p className='text-lg font-semibold text-white md:text-xl'>{text}</p>
+                    <p className='text-lg font-semibold text-white md:text-xl'>SEE ALL {'>'} </p>
                 </div>
             :
                 <div className={`${bg} p-2`}>
@@ -57,8 +57,8 @@ export default function MutipleSlide({ data, bg = 'bg-white', text , deals}) {
             
             <Slider {...settings} className='p-2'>
 
-                {data.map((item) => <div className='flex flex-col w-full p-2'>
-                    <img className='flex-1 object-contain w-full h-44' src={item.image} />
+                {data.map((item,index) => <div key={index} className='flex flex-col w-full p-2'>
+                    <img className='flex-1 object-contain w-full h-32' src={item.image} />
                      <div className='overflow-x-hidden'>
                         <p className='overflow-x'>
                             Product Name  
