@@ -38,10 +38,11 @@ export default function Navbar() {
 
                     <Link href='/checkout'>
                         <div className='flex items-center'>
-                            <img className='inline-block w-5 mr-3 stroke-2' src='/shopping-cart.svg' />
-                            <span className='hidden lg:block'>Cart <span className='p-2 text-red-500 bg-black rounded-full'>
+                            <img className='inline-block w-5 stroke-2' src='/shopping-cart.svg' />
+                            <span className='flex items-center justify-center w-3 h-4 p-2 mb-4 mr-3 -ml-2 text-sm text-center text-white align-top bg-yellow-600 rounded-full '>
                                 {count}
-                                </span></span>
+                            </span>
+                            <span className='hidden lg:block'>Cart</span>
                         </div>
                     </Link>
                 </div>
